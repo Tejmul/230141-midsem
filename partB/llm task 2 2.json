@@ -1,0 +1,36 @@
+{
+  "student_metadata": {
+    "name": "Tejmu Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 2.2",
+    "submission_date": ""
+  },
+  "llm_tools_used": [],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 2.2",
+      "date": "",
+      "tool_name": "",
+      "model": "",
+      "purpose": "",
+      "prompt": "",
+      "llm_response_used": "",
+      "how_it_helped": "",
+      "student_verification": "",
+      "confidence_level": 0,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 2.2.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": ""
+  }
+}
