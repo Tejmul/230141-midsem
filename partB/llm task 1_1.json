@@ -1,0 +1,70 @@
+{
+  "student_metadata": {
+    "name": "Tejmul Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 1.1",
+    "submission_date": "2026-03-07"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 1.1",
+      "date": "2026-03-05",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Clarifying the cutting-plane step in Algorithm 1",
+      "prompt": "In the FGM paper Section 2.2, Algorithm 1 says we add the 'most violated d_hat' to the working set. What does 'most violated' mean in terms of the constraint — is it the d that maximises the LHS of the constraint in Eq. 4?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "It confirmed that we are looking for the constraint violation. I re-read Section 2.4 myself and saw that sorting by c_j^2 gives the exact solution, so I used that to write the step-by-step description in my own words.",
+      "student_verification": "Checked Eq. 4 and Section 2.4 — the paper does say the most violated d is obtained by taking top B features by c_j^2. I wrote the algorithm steps in the notebook without copying.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 2,
+      "task_tag": "Task 1.1",
+      "date": "2026-03-05",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Summarising the paper's claim in one sentence",
+      "prompt": "How would you state in one sentence what problem the FGM paper solves and what makes it better than standard SVM-RFE? I want to phrase it for my own summary, not copy.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "It gave a template like 'solves X, better because Y'. I rephrased it completely after re-reading the abstract and Section 1 — the paper says they get a sparse solution with a single MKL-style formulation instead of repeated RFE.",
+      "student_verification": "My final sentence in the notebook matches the abstract and Section 1. I did not paste the LLM's sentence.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "In the FGM paper Section 2.2, Algorithm 1 says we add the 'most violated d_hat' to the working set. What does 'most violated' mean in terms of the constraint — is it the d that maximises the LHS of the constraint in Eq. 4?",
+      "why_important": "Cleared up the cutting-plane step so I could describe Algorithm 1 correctly in my own words and cite Eq. 4 and Section 2.4."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "How would you state in one sentence what problem the FGM paper solves and what makes it better than standard SVM-RFE? I want to phrase it for my own summary, not copy.",
+      "why_important": "Helped me structure the final summary sentence; I then rewrote it from the paper's abstract and Section 1."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 1.1. I used the LLM only to clarify two points while reading the paper; I wrote the full step-by-step method description and summary in the notebook myself after verifying against the paper.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": "2026-03-07"
+  }
+}

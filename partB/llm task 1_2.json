@@ -1,0 +1,70 @@
+{
+  "student_metadata": {
+    "name": "Tejmul Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 1.2",
+    "submission_date": "2026-03-07"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 1.2",
+      "date": "2026-03-05",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Identifying assumptions specific to FGM, not general ML",
+      "prompt": "The Part B instructions say the three assumptions should be embedded in the paper's method, not generic like 'data is i.i.d.'. For the FGM paper (sparse SVM with cutting-plane), what are 2–3 assumptions that are specific to how they build the working set and the c_j^2 ranking?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "It mentioned things like 'feature importance is captured by c_j^2' and 'the working set converges in few iterations'. I went back to Section 2.2 and 2.7 and picked three assumptions I could cite: ranking by c_j^2 for the mask, sparsity budget B, and the 10-iteration remark. I wrote the assumption/violation/reference blocks myself.",
+      "student_verification": "Each of my three assumptions in the notebook has a paper reference (section or equation). I can point to them in the paper during Part C.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 2,
+      "task_tag": "Task 1.2",
+      "date": "2026-03-05",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Coming up with a violation scenario for the c_j^2 assumption",
+      "prompt": "If FGM assumes the most important features are the ones with largest c_j^2 (marginal), what kind of data would violate that — where would ranking by c_j^2 give the wrong features?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "It suggested interaction effects, e.g. XOR-style where two features together matter but each alone looks weak. I used that idea and wrote the violation scenario in my own words, linking it to the assumption I had stated.",
+      "student_verification": "My Task 1.2 violation scenario for Assumption 2 describes exactly this situation. I verified it makes sense with the paper's use of linear kernels and single-feature coefficients.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "The Part B instructions say the three assumptions should be embedded in the paper's method, not generic like 'data is i.i.d.'. For the FGM paper (sparse SVM with cutting-plane), what are 2–3 assumptions that are specific to how they build the working set and the c_j^2 ranking?",
+      "why_important": "Helped me focus on paper-specific assumptions so I could list three with proper paper references and violation scenarios."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "If FGM assumes the most important features are the ones with largest c_j^2 (marginal), what kind of data would violate that — where would ranking by c_j^2 give the wrong features?",
+      "why_important": "Gave me the idea of interaction-heavy data (e.g. XOR) for the violation scenario; I wrote it up and linked it to Assumption 2."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 1.2. I used the LLM to narrow down paper-specific assumptions and one violation scenario; I formulated all three assumptions and their references in the notebook myself.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": "2026-03-07"
+  }
+}

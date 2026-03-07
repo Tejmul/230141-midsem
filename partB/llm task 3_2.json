@@ -1,0 +1,112 @@
+{
+  "student_metadata": {
+    "name": "Tejmul Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 3.2",
+    "submission_date": "2026-03-07"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 3.2",
+      "date": "2026-03-06",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Finding a failure scenario that links to Task 1.2",
+      "prompt": "In Task 1.2 I wrote that FGM assumes the most-violated mask can be found by ranking features by c_j^2 and taking top B — and that with interaction-heavy structure (e.g. XOR), individual features can look weak. For Task 3.2 I need one concrete failure scenario. Would XOR-like data where the label depends on x0*x1 be a good choice, and how do I generate it so FGM and SVM-RFE would actually miss features 0 and 1?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Confirmed that XOR-like data is a standard way to violate marginal feature scoring. Suggested generating y = sign(x0*x1) with extra noise features so c_j for j=0,1 can be small. I implemented the data generation myself and added noise features; I didn't copy any code.",
+      "student_verification": "My notebook generates XOR-like data with 2 signal features and 30 noise features. The failure explanation in the markdown cell explicitly links to Assumption 2 and the violation scenario from Task 1.2.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 2,
+      "task_tag": "Task 3.2",
+      "date": "2026-03-06",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Implementing the failure demonstration",
+      "prompt": "I have my run_fgm and run_svm_rfe functions from Task 2.2. For the failure-mode experiment I want to run FGM and SVM-RFE with B=2 on the XOR-like data, and also an oracle that uses only features 0 and 1, and SVM on all features. What metrics should I compare — just test accuracy for all four?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed comparing test accuracy across FGM-B, SVM-RFE, oracle (features 0,1), and SVM(ALL) is the right way to show the failure: if FGM/RFE select wrong features, their accuracy will be worse than the oracle.",
+      "student_verification": "The notebook does exactly that and reports all four accuracies. The plot shows the bar chart comparison and which features were selected vs the true signal [0,1].",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 3,
+      "task_tag": "Task 3.2",
+      "date": "2026-03-06",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Linking failure to assumptions in the explanation",
+      "prompt": "The instructions say the failure explanation should connect to a specific assumption or design choice from Question 1. I'm writing the paragraph that explains why FGM fails on XOR-like data. How do I make the link to Assumption 2 explicit without just repeating the assumption?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested stating the assumption briefly, then saying 'our XOR-like setup does exactly that' — the label depends on the product of features 0 and 1, so each feature alone has weak marginal correlation, and both FGM (c_j^2) and SVM-RFE (|w_j|) rely on marginal importance. I used that structure and wrote the paragraph in my own words, citing the violation scenario from Task 1.2.",
+      "student_verification": "The markdown cell 'Explanation and link to Task 1.2' quotes Assumption 2 and the violation scenario, then explains how the XOR experiment instantiates that violation. I verified it matches my Task 1.2 wording.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 4,
+      "task_tag": "Task 3.2",
+      "date": "2026-03-06",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Suggested modification to address the failure",
+      "prompt": "I need one concrete modification to suggest that could address this failure. The problem is that FGM scores features by c_j^2 (marginal). For XOR we need the pair (0,1). Is it reasonable to suggest extending to pairwise or second-order scores (e.g. c_{j,l}^2 for pairs) so that interaction-heavy structure can be captured? I don't have to implement it — just one sentence.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Agreed that pairwise/second-order feature scores would allow the pair (0,1) to get a high score even when c_0 and c_1 are small. Mentioned it would cost O(m^2) for pairs. I wrote the one-sentence suggestion myself, mentioning pairwise scores and adding top pair(s) to the working set.",
+      "student_verification": "My 'Suggested modification' paragraph in the notebook proposes extending feature scoring to pairwise (second-order) scores and adding the top pair(s) to the working set, and notes the link to Assumption 2's violation scenario.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "In Task 1.2 I wrote that FGM assumes the most-violated mask can be found by ranking features by c_j^2 and taking top B — and that with interaction-heavy structure (e.g. XOR), individual features can look weak. For Task 3.2 I need one concrete failure scenario. Would XOR-like data where the label depends on x0*x1 be a good choice, and how do I generate it so FGM and SVM-RFE would actually miss features 0 and 1?",
+      "why_important": "Confirmed XOR-like data as a valid failure mode and helped me design the setup; I implemented the data generation and linked it to Assumption 2 in my write-up."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "I have my run_fgm and run_svm_rfe functions from Task 2.2. For the failure-mode experiment I want to run FGM and SVM-RFE with B=2 on the XOR-like data, and also an oracle that uses only features 0 and 1, and SVM on all features. What metrics should I compare — just test accuracy for all four?",
+      "why_important": "Confirmed that comparing test accuracy across FGM-B, SVM-RFE, oracle, and SVM(ALL) is the right way to demonstrate the failure; I ran all four and plotted the comparison."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "The instructions say the failure explanation should connect to a specific assumption or design choice from Question 1. I'm writing the paragraph that explains why FGM fails on XOR-like data. How do I make the link to Assumption 2 explicit without just repeating the assumption?",
+      "why_important": "Gave me a clear structure (assumption → 'our setup does exactly that' → why marginal scoring fails); I wrote the paragraph in my own words and cited the Task 1.2 violation scenario."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 4,
+      "prompt": "I need one concrete modification to suggest that could address this failure. The problem is that FGM scores features by c_j^2 (marginal). For XOR we need the pair (0,1). Is it reasonable to suggest extending to pairwise or second-order scores (e.g. c_{j,l}^2 for pairs) so that interaction-heavy structure can be captured? I don't have to implement it — just one sentence.",
+      "why_important": "Validated the pairwise-scoring idea and the trade-off (O(m^2)); I wrote the one-sentence suggested modification myself in the notebook."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 3.2. I used the LLM to choose and design the XOR-like failure scenario, to confirm how to compare methods, and to structure the explanation and suggested modification; I then verified the link to Task 1.2 Assumption 2 and wrote all code and text myself.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": "2026-03-07"
+  }
+}

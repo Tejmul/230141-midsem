@@ -1,0 +1,132 @@
+{
+  "student_metadata": {
+    "name": "Tejmul Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-07"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 2.2",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Understanding Algorithm 1 step by step",
+      "prompt": "Walk me through Algorithm 1 from the FGM paper (Section 2.2) step by step. What does 'most violated d_hat' mean and how is it computed?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Clarified that the most violated d_hat is the feature subset that maximises the constraint violation in the cutting-plane formulation (Eq. 4). Helped me understand why sorting c_j^2 gives the global optimum.",
+      "student_verification": "Verified against Section 2.4 of the paper. The equivalence to sorting c_j^2 is explicitly derived in the paper.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 2,
+      "task_tag": "Task 2.2",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "MKL simplification justification",
+      "prompt": "Can I use LinearSVC from sklearn as a simplified proxy for SimpleMKL in the FGM paper? Is this mathematically justified?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Confirmed that since all kernels are linear (Section 2.7), LinearSVC on the feature union is a reasonable proxy. Helped me write the justification.",
+      "student_verification": "Verified by re-reading Section 2.7: 'all base kernels are linear, subproblem solved by LIBLinear'. LinearSVC uses the same dual coordinate descent approach.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 3,
+      "task_tag": "Task 2.2",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Dual variable approximation",
+      "prompt": "In L2-SVM, how are dual variables alpha_i related to margin violations? How can I approximate alpha from a trained LinearSVC?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Explained that under the KKT conditions, non-zero alpha_i correspond to support vectors (margin violations). Used this to justify the margin violation approximation.",
+      "student_verification": "Cross-checked against Section 2 of the paper where domain A requires alpha_i >= 0 and sum=1. The normalised margin violation approach satisfies these constraints.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 4,
+      "task_tag": "Task 2.2",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Convergence check implementation",
+      "prompt": "How should I implement the convergence check for Theorem 2 of the FGM paper? The theorem says stop when d_hat is already in C.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested comparing the selected feature index sets for equality. Used set comparison which I then adapted.",
+      "student_verification": "Verified against Theorem 2 and its proof in Section 2.6. The proof shows that when d^{k+1} in C_k, the algorithm has reached global optimum.",
+      "confidence_level": 5,
+      "code_used_verbatim": true,
+      "student_modification": "Changed from index array equality to set comparison to handle any ordering of feature indices."
+    },
+    {
+      "interaction_id": 5,
+      "task_tag": "Task 2.2",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "SVM-RFE implementation",
+      "prompt": "How should I implement SVM-RFE to match the paper's description in Section 1 and 3.3? The paper says 'remove 10 features at a time when total > 200'.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Helped structure the iterative elimination loop. I adapted the chunk size to proportional elimination since we have only 34 features.",
+      "student_verification": "Verified against Section 3.3: 'remove 10 features at each time when total > 200, otherwise remove one at a time'. For 34 features we use proportional chunks.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "Walk me through Algorithm 1 from the FGM paper (Section 2.2) step by step. What does 'most violated d_hat' mean and how is it computed?",
+      "why_important": "Clarified that the most violated d_hat is the feature subset that maximises the constraint violation in the cutting-plane formulation (Eq. 4). Helped me understand why sorting c_j^2 gives the global optimum."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "Can I use LinearSVC from sklearn as a simplified proxy for SimpleMKL in the FGM paper? Is this mathematically justified?",
+      "why_important": "Confirmed that since all kernels are linear (Section 2.7), LinearSVC on the feature union is a reasonable proxy. Helped me write the justification."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "In L2-SVM, how are dual variables alpha_i related to margin violations? How can I approximate alpha from a trained LinearSVC?",
+      "why_important": "Explained that under the KKT conditions, non-zero alpha_i correspond to support vectors (margin violations). Used this to justify the margin violation approximation."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 4,
+      "prompt": "How should I implement the convergence check for Theorem 2 of the FGM paper? The theorem says stop when d_hat is already in C.",
+      "why_important": "Suggested comparing the selected feature index sets for equality. Used set comparison which I then adapted."
+    },
+    {
+      "rank": 5,
+      "interaction_id": 5,
+      "prompt": "How should I implement SVM-RFE to match the paper's description in Section 1 and 3.3? The paper says 'remove 10 features at a time when total > 200'.",
+      "why_important": "Helped structure the iterative elimination loop. I adapted the chunk size to proportional elimination since we have only 34 features."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 2.2.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": "2026-03-07"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "student_metadata": {
+    "name": "Tejmul Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 4.2",
+    "submission_date": "2026-03-07"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 4.2",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Understanding JSON file structure for Part B",
+      "prompt": "I'm going through my Part B LLM logs and making sure each task's JSON is correct. I have separate files for each task—some have only 2 or 3 interactions. Does every file still need its own student_metadata and student_declaration, and for top_5_prompts do I list all of them even when there are fewer than 5?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Claude confirmed each file must be self-contained with its own metadata and declaration. For top_5_prompts, it said to list every interaction I have when there are fewer than five. I didn't know that before—I had left top_5 empty on the tasks where I'd only used the LLM a couple of times. I went back and filled those in.",
+      "student_verification": "I re-read the Part B instructions and found the line about 'if fewer than five interactions were logged for a task, include all of them.' That matched what Claude said. I updated my llm_task_2_3 and llm_task_4_2 files so the top_5_prompts list every interaction I actually had.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 2,
+      "task_tag": "Task 4.2",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Clarifying when to mark code as verbatim",
+      "prompt": "For code_used_verbatim: I asked Claude how to structure the FGM cutting-plane loop (like what to return from run_fgm and how to track the working set). I didn't copy any code—I wrote it myself in Python following that idea. Should that be true or false? I want to report it correctly.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Claude said verbatim means the exact code was copied without change. If I got structural or conceptual help but wrote the implementation myself, that's false. I was leaning that way already but wanted to be sure so I'm consistent across all my task JSONs.",
+      "student_verification": "I went through each interaction where I had coding help. Where I'd pasted a snippet and then edited it, I left code_used_verbatim as true or added a note. Where I'd only asked 'how should I structure X' and then coded it myself, I set it to false and described that in how_it_helped.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 3,
+      "task_tag": "Task 4.2",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Writing stronger student_verification entries",
+      "prompt": "The instructions say student_verification has to be in my own words and show I checked the response. What makes a verification good—should I be citing section numbers from the paper or is it enough to say I re-read the instructions and it matched?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Claude suggested tying each verification to something concrete—e.g. a paper section, an equation, or something I actually did (like 'I re-ran the notebook and got X'). I used that as a guide and went back over my logs. For the ones where the LLM had cited the paper, I added the section or equation so the verification is traceable.",
+      "student_verification": "I applied this to all my interaction entries. For example in Task 2.3, my verification for the 'result gap' prompt now references Table 1 (dataset), Section 2.3 (MKL), Section 3.4 (30 runs), and B from 3.4—so an examiner can see I didn't just accept the answer but checked it against the paper.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "I'm going through my Part B LLM logs and making sure each task's JSON is correct. I have separate files for each task—some have only 2 or 3 interactions. Does every file still need its own student_metadata and student_declaration, and for top_5_prompts do I list all of them even when there are fewer than 5?",
+      "why_important": "I wasn't sure if files with fewer interactions still needed to be self-contained. Confirmed I should list every interaction in top_5_prompts when there are fewer than five, so I went back and filled those in."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "For code_used_verbatim: I asked Claude how to structure the FGM cutting-plane loop (like what to return from run_fgm and how to track the working set). I didn't copy any code—I wrote it myself in Python following that idea. Should that be true or false? I want to report it correctly.",
+      "why_important": "I wanted to be honest about what counted as verbatim. Once I knew it meant exact copy, I could consistently mark my 'structure only' help as false across all tasks."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "The instructions say student_verification has to be in my own words and show I checked the response. What makes a verification good—should I be citing section numbers from the paper or is it enough to say I re-read the instructions and it matched?",
+      "why_important": "I wanted my verifications to actually show I'd checked the LLM's answers. Using concrete references (sections, equations) made the logs more credible and helped me double-check my own work."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 4.2. I used the LLM to clarify the disclosure format and how to report my usage accurately; I then verified each point against the Part B instructions and my own notebooks.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": "2026-03-07"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "student_metadata": {
+    "name": "Tejmul Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 2.3",
+    "submission_date": "2026-03-07"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 2.3",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Result gap analysis",
+      "prompt": "My FGM reproduction on Ionosphere gives different accuracy than the paper's WDBC results. How should I explain this gap honestly in the report?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested 4 reasons: dataset difference, simplified MKL, no cross-validation averaging, different B value. Used all four in my explanation.",
+      "student_verification": "Each reason is traceable: dataset difference from Table 1, simplified MKL from Section 2.3, cross-validation from Section 3.4 ('repeated 30 times'), B from Section 3.4.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 2,
+      "task_tag": "Task 2.3",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Visualisation design for comparison",
+      "prompt": "What plots should I include in task_2_3 to clearly compare FGM, FGM-B, SVM-RFE, and SVM(ALL)?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested bar chart for accuracy/sparsity, accuracy-vs-features line plot, and confusion matrix. All three implemented.",
+      "student_verification": "Bar chart mirrors Table 3 style. Accuracy-vs-features mirrors Figure 4. Confusion matrix is a standard classification diagnostic.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 3,
+      "task_tag": "Task 2.3",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Reproducibility checklist items",
+      "prompt": "What are the 5 reproducibility checklist items required by the Part B instructions and how should I verify each?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Listed the 5 items from the Part B spec. Used them to structure the checklist cell.",
+      "student_verification": "Verified against the Part B document reproducibility checklist section. All 5 items explicitly mentioned there.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "My FGM reproduction on Ionosphere gives different accuracy than the paper's WDBC results. How should I explain this gap honestly in the report?",
+      "why_important": "Suggested 4 reasons: dataset difference, simplified MKL, no cross-validation averaging, different B value. Used all four in my explanation."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "What plots should I include in task_2_3 to clearly compare FGM, FGM-B, SVM-RFE, and SVM(ALL)?",
+      "why_important": "Suggested bar chart for accuracy/sparsity, accuracy-vs-features line plot, and confusion matrix. All three implemented."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "What are the 5 reproducibility checklist items required by the Part B instructions and how should I verify each?",
+      "why_important": "Listed the 5 items from the Part B spec. Used them to structure the checklist cell."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 2.3.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": "2026-03-07"
+  }
+}

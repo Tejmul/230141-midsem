@@ -1,0 +1,133 @@
+{
+  "student_metadata": {
+    "name": "Tejmul Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 2.1",
+    "submission_date": "2026-03-07"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 2.1",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Dataset selection for FGM reproduction",
+      "prompt": "Which publicly available binary classification dataset would be best for reproducing the FGM paper? It should NOT be WDBC, USPS, Breast Cancer or Leukemia (used in the paper), should have at least 2 features and 100 samples, and should have some redundant features to make sparse feature selection meaningful.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested Ionosphere as a good fit — radar signal data with known redundant features, free on UCI/OpenML, binary labels, 34 features, 351 samples.",
+      "student_verification": "Verified by reading the Ionosphere dataset description on UCI and confirming it is not in Table 1 of the paper.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 2,
+      "task_tag": "Task 2.1",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Dataset justification wording",
+      "prompt": "Help me write a 4-sentence justification for why the Ionosphere UCI dataset is appropriate for the FGM paper's method, specifically mentioning the binary classification setup and feature redundancy.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Helped structure the 4-sentence justification format, but I added the specific paper section references and Table 1 exclusion argument myself.",
+      "student_verification": "Verified each claim against the paper. Section 2 states y_i in {+/-1} which matches. Table 1 confirms Ionosphere is not used.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 3,
+      "task_tag": "Task 2.1",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Preprocessing pipeline",
+      "prompt": "In scikit-learn, how do I apply StandardScaler to training data and then use the same scaler on test data to avoid data leakage?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed the fit_transform on train, transform on test pattern.",
+      "student_verification": "Standard ML practice, also consistent with paper Section 3.1 normalisation requirement.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 4,
+      "task_tag": "Task 2.1",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "EDA plot design",
+      "prompt": "What 3 EDA plots would be most informative before running a sparse feature selection experiment?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested feature distributions, correlation heatmap, and class distribution — all relevant to FGM motivation.",
+      "student_verification": "All three plots directly relate to arguments in the paper's Introduction (Section 1) about redundant features and binary classification.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 5,
+      "task_tag": "Task 2.1",
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "fetch_openml usage",
+      "prompt": "How do I load the Ionosphere dataset using sklearn's fetch_openml? What parameters should I use?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed name='ionosphere', version=1, parser='auto'.",
+      "student_verification": "Tested the code and it works without manual download steps. Satisfies the reproducibility requirement.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "Which publicly available binary classification dataset would be best for reproducing the FGM paper? It should NOT be WDBC, USPS, Breast Cancer or Leukemia (used in the paper), should have at least 2 features and 100 samples, and should have some redundant features to make sparse feature selection meaningful.",
+      "why_important": "Suggested Ionosphere as a good fit — radar signal data with known redundant features, free on UCI/OpenML, binary labels, 34 features, 351 samples."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "Help me write a 4-sentence justification for why the Ionosphere UCI dataset is appropriate for the FGM paper's method, specifically mentioning the binary classification setup and feature redundancy.",
+      "why_important": "Helped structure the 4-sentence justification format, but I added the specific paper section references and Table 1 exclusion argument myself."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "In scikit-learn, how do I apply StandardScaler to training data and then use the same scaler on test data to avoid data leakage?",
+      "why_important": "Confirmed the fit_transform on train, transform on test pattern."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 4,
+      "prompt": "What 3 EDA plots would be most informative before running a sparse feature selection experiment?",
+      "why_important": "Suggested feature distributions, correlation heatmap, and class distribution — all relevant to FGM motivation."
+    },
+    {
+      "rank": 5,
+      "interaction_id": 5,
+      "prompt": "How do I load the Ionosphere dataset using sklearn's fetch_openml? What parameters should I use?",
+      "why_important": "Confirmed name='ionosphere', version=1, parser='auto'."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 2.1.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": "2026-03-07"
+  }
+}

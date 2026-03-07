@@ -1,0 +1,133 @@
+{
+  "student_metadata": {
+    "name": "Tejmul Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 3.1",
+    "submission_date": "2026-03-07"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 3.1",
+      "date": "2026-03-06",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Choosing which FGM components to ablate",
+      "prompt": "For the FGM paper (Tan et al., sparse SVM feature selection), I need to ablate two distinct components. I've read Algorithm 1 and Section 2.2 — which two components would be most meaningful to ablate so I can show what the method actually relies on? I want to pick things that are clearly defined in the paper, not generic SVM stuff.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested the cutting-plane iteration count (Section 2.7 says 'about 10 iterations') and the sparsity budget B. I had already thought of B but hadn't tied MAX_ITER to Section 2.7; I went back and confirmed that sentence in the paper and used both for my two ablations.",
+      "student_verification": "Section 2.7 explicitly states a maximum of 10 iterations is enough for convergence. Section 2 and 3.2 define B as the number of features in the mask. Both are ablated independently in my notebook.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 2,
+      "task_tag": "Task 3.1",
+      "date": "2026-03-06",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Structuring the ablation experiment",
+      "prompt": "The Part B instructions say each ablation must be independent — when testing one component, keep all others at full settings. For FGM, if I ablate MAX_ITER, should I fix B at some value and only change the number of iterations? And for the B ablation, fix MAX_ITER at 10? I want to make sure I'm doing it correctly.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Confirmed that for Ablation 1 I should fix B (e.g. B=5) and vary MAX_ITER; for Ablation 2 fix MAX_ITER=10 and vary B. I implemented exactly that in the notebook.",
+      "student_verification": "Re-read the Task 3.1 wording: 'when testing one component, keep all other parts of the method at their full settings.' My code uses B=5 for the MAX_ITER ablation and MAX_ITER=10 for the B ablation.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 3,
+      "task_tag": "Task 3.1",
+      "date": "2026-03-06",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Interpreting the MAX_ITER ablation result",
+      "prompt": "My MAX_ITER ablation on Ionosphere shows test accuracy and sparsity changing as I go from 1 to 10 iterations. With only 1 iteration the working set never grows. How should I explain in 5–7 sentences why this matters for FGM — what does the paper say about convergence and when does the method 'stop'?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Clarified that with one iteration FGM behaves like single-shot selection and that convergence is when the new d_hat is already in the working set (Section 2.2). I wrote the interpretation paragraph myself, tying it to Algorithm 1 and the 10-iteration remark in 2.7.",
+      "student_verification": "Section 2.2 describes the cutting-plane loop and when to add a new mask. My markdown cell cites Section 2.2 and 2.7 and states that truncating iterations is a real ablation of the core loop.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 4,
+      "task_tag": "Task 3.1",
+      "date": "2026-03-06",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Plot and table for B ablation",
+      "prompt": "For the B (sparsity budget) ablation I have a table of B vs test accuracy and sparsity. Should I plot accuracy vs B and sparsity vs B on the same figure or separate? I want the visualisation to clearly show the trade-off the paper talks about.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested either two subplots or one plot with two y-axes. I went with a single plot of test accuracy vs B and included the sparsity values in the table so the trade-off is visible without cluttering the figure.",
+      "student_verification": "The plot is saved to partB/results/task_3_1_ablation_B.png. The table in the notebook shows both Test_Acc_% and Sparsity for each B so the interpretation can reference the trade-off.",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "student_modification": null
+    },
+    {
+      "interaction_id": 5,
+      "task_tag": "Task 3.1",
+      "date": "2026-03-06",
+      "tool_name": "Claude",
+      "model": "claude-sonnet-4-6",
+      "purpose": "Interpretation paragraph requirements",
+      "prompt": "The rubric says for each ablation I need a paragraph (5–7 sentences) interpreting the result — whether removing the component affected performance, whether the size of the change matches my expectation, and what it reveals about that component. Can you give me a checklist so I don't miss any of these when I write it?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Gave a short checklist: (1) effect on performance, (2) size of change vs expectation, (3) what it reveals about the component. I used that to structure both interpretation paragraphs and then wrote them in my own words from my actual numbers.",
+      "student_verification": "Both markdown interpretation cells in the notebook address effect on performance, whether the change matched expectation, and what the ablation reveals. I did not copy any text; I wrote them after looking at my plots and the paper.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "For the FGM paper (Tan et al., sparse SVM feature selection), I need to ablate two distinct components. I've read Algorithm 1 and Section 2.2 — which two components would be most meaningful to ablate so I can show what the method actually relies on? I want to pick things that are clearly defined in the paper, not generic SVM stuff.",
+      "why_important": "Helped me choose MAX_ITER and B as the two components; I verified both against Section 2.7 and Section 2/3.2 and used them for my ablations."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "The Part B instructions say each ablation must be independent — when testing one component, keep all others at full settings. For FGM, if I ablate MAX_ITER, should I fix B at some value and only change the number of iterations? And for the B ablation, fix MAX_ITER at 10? I want to make sure I'm doing it correctly.",
+      "why_important": "Confirmed the independent-ablation setup so I could implement it correctly: fix B=5 for MAX_ITER ablation and MAX_ITER=10 for B ablation."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "My MAX_ITER ablation on Ionosphere shows test accuracy and sparsity changing as I go from 1 to 10 iterations. With only 1 iteration the working set never grows. How should I explain in 5–7 sentences why this matters for FGM — what does the paper say about convergence and when does the method 'stop'?",
+      "why_important": "Clarified convergence and single-shot behaviour; I used that to write my own interpretation linking to Algorithm 1 and Section 2.7."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 4,
+      "prompt": "For the B (sparsity budget) ablation I have a table of B vs test accuracy and sparsity. Should I plot accuracy vs B and sparsity vs B on the same figure or separate? I want the visualisation to clearly show the trade-off the paper talks about.",
+      "why_important": "Helped decide how to visualise the B ablation; I saved the plot to results/ and kept the table for the full trade-off."
+    },
+    {
+      "rank": 5,
+      "interaction_id": 5,
+      "prompt": "The rubric says for each ablation I need a paragraph (5–7 sentences) interpreting the result — whether removing the component affected performance, whether the size of the change matches my expectation, and what it reveals about that component. Can you give me a checklist so I don't miss any of these when I write it?",
+      "why_important": "Gave me a clear checklist so I could write both interpretation paragraphs myself without missing any required point."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 3.1. I used the LLM to decide which components to ablate, to confirm the independent-ablation setup, and to structure my interpretation paragraphs; I then verified each point against the paper and wrote all explanations and code myself.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": "2026-03-07"
+  }
+}

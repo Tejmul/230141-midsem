@@ -1,0 +1,43 @@
+{
+  "student_metadata": {
+    "name": "Tejmul Movin",
+    "roll_number": "230141",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "task": "Task 4.1",
+    "submission_date": "2026-03-07"
+  },
+  "llm_tools_used": [],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "task_tag": "Task 4.1",
+      "date": "2026-03-07",
+      "tool_name": "",
+      "model": "",
+      "purpose": "No LLM used for writing the report",
+      "prompt": "N/A — I did not use an LLM to write the content of report.pdf. I wrote the summary, reproduction commentary, ablation findings, failure mode explanation, and reflection myself, using only my notebooks and the paper.",
+      "llm_response_used": "No",
+      "how_it_helped": "Not applicable.",
+      "student_verification": "The report content is based on my own results and interpretations from Tasks 1–3. I did not ask an LLM to draft or rewrite any section.",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "student_modification": null
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "N/A — I did not use an LLM to write the content of report.pdf. I wrote the summary, reproduction commentary, ablation findings, failure mode explanation, and reflection myself, using only my notebooks and the paper.",
+      "why_important": "This file corresponds to Task 4.1 (Report). I am including this single entry to state explicitly that no LLM was used for the report, as required by the disclosure format."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 4.1. I did not use an LLM to generate or edit the text of my report; all sections are my own writing based on my notebooks and the selected paper.",
+    "understanding_acknowledged": true,
+    "signature": "Tejmul Movin",
+    "date": "2026-03-07"
+  }
+}
