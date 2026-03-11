@@ -6,7 +6,7 @@
     "exam": "Mid-Semester Examination",
     "part": "Part B",
     "task": "Task 1.1",
-    "submission_date": "2026-03-07"
+    "submission_date": "2026-03-12"
   },
   "llm_tools_used": [
     {
@@ -65,6 +65,6 @@
     "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 1.1. I used the LLM only to clarify two points while reading the paper; I wrote the full step-by-step method description and summary in the notebook myself after verifying against the paper.",
     "understanding_acknowledged": true,
     "signature": "Tejmul Movin",
-    "date": "2026-03-07"
+    "date": "2026-03-12"
   }
 }

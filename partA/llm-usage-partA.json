@@ -1,11 +1,11 @@
 {
     "student_metadata": {
-      "name": "Tejmu Movin",
+      "name": "Tejmul Movin",
       "roll_number": "230141",
       "course": "Advanced Machine Learning",
       "exam": "Mid-Semester Examination",
       "part": "Part A",
-      "submission_date": "2026-03-01"
+      "submission_date": "2026-03-12"
     },
     "llm_tools_used": [
       {
@@ -118,6 +118,6 @@
       "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Part A.",
       "understanding_acknowledged": true,
       "signature": "Tejmul Movin",
-      "date": "2026-03-01"
+      "date": "2026-03-12"
     }
   }
